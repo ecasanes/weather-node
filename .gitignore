@@ -227,3 +227,6 @@ dist
 .history
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,intellij
+
+### Custom Ignored files ###
+config.yaml

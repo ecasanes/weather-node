@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "js-yaml": "^3.14.0",
     "postman-request": "^2.88.1-postman.24"
   }
 }

@@ -26,6 +26,8 @@ mapBox.getInfo = (location, callback) => {
         });
     }
 
+    location = encodeURIComponent(location);
+
     const API_QUERY = `${API_URL}/geocoding/v5/mapbox.places/${location}.json?access_token=${API_KEY}`;
 
     request({

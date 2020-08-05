@@ -32,6 +32,12 @@ heroku git:remote -a [heroku_app_name]
 git push heroku master
 ```
 
+## Heroku Debug
+
+```bash
+heroku logs -n 200
+```
+
 ### Sample Config
 ```yaml
 

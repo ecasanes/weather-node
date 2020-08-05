@@ -1,5 +1,5 @@
 const request = require('postman-request');
-const config = require('../config');
+const config = require('./../config');
 
 const {mapbox:mapBoxConfig} = config.getConfig();
 

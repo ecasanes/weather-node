@@ -1,5 +1,5 @@
 const request = require('postman-request');
-const {getConfig} = require('../config');
+const {getConfig} = require('./../config');
 
 const {weather_stack:weatherStackConfig} = getConfig();
 

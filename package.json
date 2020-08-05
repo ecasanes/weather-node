@@ -15,5 +15,8 @@
     "hbs": "^4.1.1",
     "js-yaml": "^3.14.0",
     "postman-request": "^2.88.1-postman.24"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

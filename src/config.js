@@ -16,6 +16,7 @@ config.initConfig = () => {
     
     try{
         const fileContent = fs.readFileSync(configYaml, 'utf8');
+        console.log('config.yaml file available...');
     }catch(error){
         
         console.log('file not found: ', error);
@@ -35,6 +36,8 @@ config.getConfig = () => {
     const data = yaml.safeLoad(contents);
     let currentEnv = config.getCurrentEnv();
     const configVariables = data[currentEnv];
+
+    console.log('config variables: ', configVariables);
 
     return configVariables;
     

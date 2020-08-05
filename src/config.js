@@ -6,6 +6,8 @@ const ABS_PATH = path.join(__dirname, '../');
 const configYamlSample = path.join(ABS_PATH, '/config.yaml.sample');
 const configYaml = path.join(ABS_PATH, '/config.yaml');
 
+console.log('configyamlsample: ', configYamlSample);
+
 const config = {};
 
 config.port = process.env.PORT || 3000;
@@ -37,6 +39,7 @@ config.getConfig = () => {
     let currentEnv = config.getCurrentEnv();
     const configVariables = data[currentEnv];
 
+    console.log('current env: ', currentEnv);
     console.log('config variables: ', configVariables);
 
     return configVariables;

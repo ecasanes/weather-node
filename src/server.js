@@ -7,6 +7,9 @@ const forecast = require('./utils/forecast');
 
 const app = express();
 
+// init config
+config.initConfig();
+
 // paths
 const ABS_PATH = path.join(__dirname, '../');
 const publicPath = path.join(ABS_PATH, '/public');

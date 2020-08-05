@@ -1,9 +1,23 @@
 const yaml = require('js-yaml');
 const fs = require('fs');
 
+const ABS_PATH = path.join(__dirname, '../');
+
 const config = {};
 
 config.port = process.env.PORT || 3000;
+
+config.initConfig = () => {
+    
+    try{
+        const fileContent = fs.readFileSync('./config.yaml', 'utf8');
+    }catch(error){
+        console.log('file not found: ', error);
+        fs.copyFileSync('config.yaml.sample', 'config.yaml');
+    }
+
+
+}
 
 config.getConfig = () => {
     const contents = fs.readFileSync('./config.yaml', 'utf8');

@@ -24,6 +24,14 @@ heroku create app-name
 # use absolute url '/'
 ```
 
+## Heroku Push
+
+```bash
+heroku git:remote -a [heroku_app_name]
+
+git push heroku master
+```
+
 ### Sample Config
 ```yaml
 

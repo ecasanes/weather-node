@@ -3,6 +3,8 @@ const fs = require('fs');
 
 const config = {};
 
+config.port = process.env.PORT || 3000;
+
 config.getConfig = () => {
     const contents = fs.readFileSync('./config.yaml', 'utf8');
     const data = yaml.safeLoad(contents);

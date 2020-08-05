@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
+const config = require('./config');
 // const handlers = require('./handlers');
 const forecast = require('./utils/forecast');
 
@@ -83,6 +84,6 @@ app.get('*', (req, res) => {
     res.render('404')
 });
 
-app.listen(3000, () => {
-    console.log('listening to port 3000');
+app.listen(config.port, () => {
+    console.log('listening to port ' + config.port);
 });

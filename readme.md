@@ -10,6 +10,20 @@ NodeJS Geolocation Weather API
 1. Duplicate remove ".sample" in the config.yaml.sample file
 2. provide appropriate variables (e.g. API_KEY)
 
+## Heroku Config
+
+```bash
+# add SSH key
+heroku keys:add
+
+#create heroku app
+heroku create app-name
+
+# add package.json start script
+# use node process.env.port instead of static port number
+# use absolute url '/'
+```
+
 ### Sample Config
 ```yaml
 

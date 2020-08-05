@@ -13,7 +13,7 @@ staging: &STAGING
   mapbox: &staging_mapbox
     <<: *mapbox
 
-prod: &PROD
+production: &PROD
   <<: *STAGING
   weather_stack:
     <<: *staging_weather_stack

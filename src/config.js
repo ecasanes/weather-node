@@ -14,7 +14,7 @@ config.getConfig = () => {
 
 config.getCurrentEnv = () => {
     
-    let currentEnv = process.ENV;
+    let currentEnv = process.env.NODE_ENV;
 
     if(typeof currentEnv !== 'string'){
         currentEnv = 'staging';

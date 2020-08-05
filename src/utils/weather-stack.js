@@ -1,5 +1,5 @@
 const request = require('postman-request');
-const {getConfig} = require('./config');
+const {getConfig} = require('../config');
 
 const {weather_stack:weatherStackConfig} = getConfig();
 
@@ -8,15 +8,20 @@ const API_KEY = weatherStackConfig.API_KEY;
 
 const weatherStack = {};
 
-weatherStack.getInfo = (latitude, longitude, callback) => {
+weatherStack.getInfo = ({latitude, longitude, key}, callback) => {
 
     const valid = weatherStack.validateConfig();
+    const validKey = weatherStack.validKey(key);
     
-    if(!valid){
+    if(valid === false && validKey === false){
         return callback({
             code: 405,
-            message: "Invalid BASE_URL or API_KEY"
-        })
+            message: "Invalid BASE_URL or API_KEY from yaml or weather_stack_key provided"
+        });
+    }
+
+    if(!validKey && valid){
+        key = API_KEY;
     }
 
     if(typeof latitude === 'undefined' || typeof latitude !== 'number'){
@@ -33,12 +38,20 @@ weatherStack.getInfo = (latitude, longitude, callback) => {
         })
     }
 
-    const API_QUERY = `${API_URL}/current?access_key=${API_KEY}&query=${longitude},${latitude}`;
+    key = encodeURIComponent(key);
+    longitude = encodeURIComponent(longitude);
+    latitude = encodeURIComponent(latitude);
+
+    const API_QUERY = `${API_URL}/current?access_key=${key}&query=${latitude},${longitude}`;
+
+    console.log('API QUERY: ', API_QUERY);
 
     request({
         url: API_QUERY,
         json: true
     }, (error, response, body) => {
+
+        console.log('error: ', error);
 
         if(error){
             return callback({
@@ -58,6 +71,20 @@ weatherStack.getInfo = (latitude, longitude, callback) => {
     
     });
 
+}
+
+weatherStack.validKey = (key) => {
+
+    if(typeof key !== "string"){
+        return false;
+    }
+
+    if(key.trim().length <= 0){
+        return false;
+    }
+
+    return true;
+    
 }
 
 weatherStack.validateConfig = () => {

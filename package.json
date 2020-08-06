@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "nodemon src/server.js -e js,hbs",
+    "develop-api": "nodemon src/api-server.js",
     "start": "node src/server.js"
   },
   "author": "",
@@ -14,7 +15,10 @@
     "express": "^4.17.1",
     "hbs": "^4.1.1",
     "js-yaml": "^3.14.0",
-    "postman-request": "^2.88.1-postman.24"
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.9.27",
+    "postman-request": "^2.88.1-postman.24",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

@@ -64,3 +64,26 @@ prod: &PROD
     <<: *staging_mapbox
 
 ```
+
+## MongoDB
+
+```bash
+
+# mac os catalina mongodb restrictions
+# right click open
+
+bin/mongod --dbpath=path_to_mongodb_folder
+
+
+# manage connections with GUI
+# Robo 3T
+
+# if having problem starting mongodb server
+https://stackoverflow.com/questions/34555603/mongodb-failing-to-start-aborting-after-fassert-failure
+
+#shell commands
+db.version()
+
+# npm
+npm install mongodb
+```

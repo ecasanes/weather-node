@@ -8,6 +8,11 @@ const taskRouter = require('./routers/task');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// middleware should be above all app.use
+// app.use((req, res, next) => {
+
+// });
+
 app.use(express.json());
 app.use(userRouter);
 app.use(taskRouter);

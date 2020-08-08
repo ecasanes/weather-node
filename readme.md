@@ -87,3 +87,14 @@ db.version()
 # npm
 npm install mongodb
 ```
+
+
+## Problems Encountered
+
+So Another Reason why You might get this Error is if you use the same model in different files but your require path has a different case. For example in my situation I had:
+
+require('./models/User') in one file and then in another file where I needed access to the User model I had require('./models/user').
+
+I guess the look up for modules & mongoose is treating it as a different file. Once I made sure the case matched in both it was no longer an issue.
+
+Reference: https://stackoverflow.com/questions/19051041/cannot-overwrite-model-once-compiled-mongoose
